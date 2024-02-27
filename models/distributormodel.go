@@ -81,8 +81,14 @@ func (d *DistributorModel) Create(distributor entities.Distributor) bool {
 func (d *DistributorModel) Update(distributor entities.Distributor) error {
 
 	_, err := d.conn.Exec(
-		"update distributors set name = ?, city = ?, country = ?, region = ?, phone = ?, email = ?where id = ?",
-		distributor.Name, distributor.City, distributor.Country, distributor.Region, distributor.Phone, distributor.Email, distributor.Id)
+		"UPDATE distributors SET name = ?, city = ?, country = ?, region = ?, phone = ?, email = ? WHERE id = ?",
+		distributor.Name,
+		distributor.City,
+		distributor.Country,
+		distributor.Region,
+		distributor.Phone,
+		distributor.Email,
+		distributor.Id)
 
 	if err != nil {
 		return err

@@ -1,6 +1,7 @@
 package ditributorcontroller
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -122,6 +123,8 @@ func Update(w http.ResponseWriter, r *http.Request) {
 				distributor.Country = r.Form.Get("country")
 				distributor.Phone = r.Form.Get("phone")
 				distributor.Email = r.Form.Get("email")
+
+				fmt.Println(distributor)
 
 				var data = make(map[string]interface{})
 
